@@ -1,0 +1,28 @@
+body {
+  background-image: url("../images/conan.jpg");
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  color: white;
+}
+.my-header {
+  background-color: black;
+}
+
+.my-content {
+  background-color: rgba(0,0,0,0.5);
+  flex: 0.3;
+}
+
+.my-footer {
+  background-color: black;
+}
+
+.my-padded-box {
+  padding: 10px;
+}
+
+.my-logo {
+  padding: 50px;
+  flex: 1;
+}
