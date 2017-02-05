@@ -4,6 +4,7 @@ body {
   flex-flow: column;
   height: 100vh;
   color: white;
+  background-size: cover;
 }
 .my-header {
   background-color: black;
