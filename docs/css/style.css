@@ -27,3 +27,20 @@ body {
   padding: 50px;
   flex: 1;
 }
+.centered {
+  text-align: center;
+  margin: 0 auto;
+}
+.playerstats-table {
+  align-content: center;
+  padding-bottom: 30px;
+}
+a {
+  color: white;
+  text-decoration: none;
+
+}
+a:hover {
+  text-decoration: none;
+  color: white;
+}

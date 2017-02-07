@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>conan.idehub.no | A friendly Conan: Exiles PVP server </title>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="my-header my-padded-box">
+  <div class="container">
+    <a href="index.html"><h1>[EU/NO] conan.idehub.no [20+]</h1>
+    <h6>30+ Slots, Relaxed Community, PvP Combat, Full Loot, Max Clan Size 10, BattleEye, and Full Nudity</h6> </a> 
+  </div>
+</div>
+<div class = "my-logo text-center">
+  <img src="images/conan-logo.png" style="width: 100%; max-width:597px;">  </img>
+
+</div>
+<div class = "my-content">
+  <div class = "container centered">
+      <h1>Player Stats</h1>
+    <table id="players" class="playerstats-table" align="center">
+        <tr>
+            <th>Character name</th>
+            <th>Guild name</th>
+            <th>Is online?</th>
+            <th>Level</th>
+        </tr>
+    </table>
+  </div>
+</div>
+<div class = "my-footer">
+  <div class ="container">
+    <div class="row">
+      <div class="col-md-4"> 
+        <div class="my-padded-box">
+          <h4>Join us in-game:<br>
+            [EU/NO] conan.idehub.no [20+]</h4>
+        </div>
+      </div>
+      <div class="col-md-4"> 
+        <div class="my-padded-box">
+          <a href="index.html"><h4>Go back</h4></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="my-padded-box">
+        <h4>Join us on discord<br>
+          <a href="https://discord.gg/dqB2zkB">https://discord.gg/dqB2zkB</a></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <script type="text/javascript">
+      $(document).ready(function () {
+          
+          $.ajax({
+              url: 'http://conanexilestats20170207054842.azurewebsites.net/PlayerStats',
+          })
+          .done(function (res) {
+              
+              for (var i = 0; i < res.length - 1; i++) {
+                  var item = res[i];
+                  var charName = item.CharName;
+                  var guildName = item.GuildName;
+                  var isOnline = item.IsOnline === "True" ? "Yes" : "";
+                  var level = item.Level;
+                  var markup = "<tr><td>"+charName+"</td><td>" + guildName+ "</td><td>" + isOnline + "</td><td>"+level+"</td></tr>";
+                  $("#players").append(markup)
+              }
+            })
+          .fail(function (err) {
+                console.log('Error: ' + err.status);
+            });
+
+      });
+  </script>
+</body>
+</html>
